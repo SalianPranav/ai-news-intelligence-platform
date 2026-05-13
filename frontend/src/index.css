@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * { box-sizing: border-box; }
+  body {
+    @apply bg-surface-950 text-slate-100 font-sans antialiased;
+    background-image:
+      radial-gradient(ellipse 80% 60% at 50% -20%, rgba(99,102,241,0.15) 0%, transparent 60%);
+  }
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-surface-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-600 rounded-full; }
+}
+
+@layer components {
+  .glass {
+    @apply bg-surface-800/60 backdrop-blur-sm border border-slate-700/50;
+  }
+  .badge {
+    @apply inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold uppercase tracking-wide;
+  }
+  .btn {
+    @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply btn bg-indigo-600 hover:bg-indigo-500 text-white shadow-lg shadow-indigo-900/40;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent hover:bg-slate-700/60 text-slate-300 hover:text-white border border-slate-700/60;
+  }
+  .input {
+    @apply w-full bg-surface-900/80 border border-slate-700/60 rounded-lg px-4 py-2.5 text-sm text-slate-200 placeholder-slate-500
+           focus:outline-none focus:ring-2 focus:ring-indigo-500/60 focus:border-indigo-500/60 transition;
+  }
+  .card {
+    @apply glass rounded-2xl shadow-xl shadow-black/30 overflow-hidden transition-all duration-300;
+  }
+}
